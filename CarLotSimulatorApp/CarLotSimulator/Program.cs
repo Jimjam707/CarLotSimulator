@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Reflection.Metadata;
+using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace CarLotSimulator
 {
@@ -28,6 +31,28 @@ namespace CarLotSimulator
             //It should have at least one property: a List of cars
             //Instanciate the a Carlot at the beginning of the program and as you create a car add the car to the list.
             //At the end iterate through the list printing each of car's Year, Make, and Model to the console
+            
+            var carsInLot = new CarLot();
+            
+            var fordMustang = new Car("Ford", "Mustang", 1964, "Yes");
+            carsInLot.Cars.Add(fordMustang);
+            
+            var toyotaCorolla = new Car();
+            toyotaCorolla.Make = "Toyota";
+            toyotaCorolla.Model = "Camry";
+            toyotaCorolla.Year = 2001;
+            toyotaCorolla.IsDriveable = "Yes";
+            toyotaCorolla.MakeEngineNoise("Vroom!");
+            toyotaCorolla.MakeHonkNoise("Beep!");
+            carsInLot.Cars.Add(toyotaCorolla);
+            
+            var subaruWrx = new Car() { Make = "Subaru", Model = "WRX", Year = 2022, IsDriveable = "No"};
+            carsInLot.Cars.Add(subaruWrx);
+            
+            carsInLot.CarList();
+            
+
         }
+        
     }
 }
